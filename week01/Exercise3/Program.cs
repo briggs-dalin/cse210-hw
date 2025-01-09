@@ -1,11 +1,17 @@
+/* Program Description 
+Code will pick a random number between 1 and 100.
+Will then prompt the user to guess said number.
+Code will stop when number is guessed, 
+but will add hints of higher or lower if wrong number is guessed*/
+
 using System;
+
 
 class Program
 {
     static void Main(string[] args)
     {
        
-        Console.WriteLine("Hello World! This is the Exercise3 Project.");
 
         Random random = new Random();
 

@@ -1,10 +1,14 @@
+/* Program description
+Prompts the user for their first name. 
+Then, prompts for their last name. 
+Displays the text back to user on one line.*/
+
 using System;
 
 class Program
 {
     static void Main(string[] args)
     {
-        Console.WriteLine("Hello World! This is the Exercise 1 Project.");
 
         Console.Write("What is your first name? ");
         string fname = Console.ReadLine();

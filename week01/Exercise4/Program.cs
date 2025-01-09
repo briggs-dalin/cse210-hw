@@ -1,7 +1,11 @@
+/* Program Description 
+Prompts the user to add numbers to a list and enter 0 when finished.
+Code will then compute the sum, average, and max of the listed numbers given.*/
+
 using System;
 using System.Collections.Generic;
-using System.Diagnostics.CodeAnalysis;
-using System.Globalization;
+
+
 
 class Program
 {
@@ -39,7 +43,7 @@ class Program
         {
             sum += number;
         }
-        Console.WriteLine($"The sum of the numbers is {sum}.");
+        Console.WriteLine($"The sum of the numbers is {sum}");
 
         //Computing average
         float average = ((float)sum) / numbers.Count;
@@ -56,6 +60,6 @@ class Program
                 max = number; 
             }
         }
-        Console.WriteLine($"The highest number is {max}.");
+        Console.WriteLine($"The highest number is {max}");
     }
 }

@@ -1,3 +1,10 @@
+/* Program Description 
+Using functions, displays a welcome message,
+prompts user for their name,
+and asks user to input their favorite number.
+Code will then display the result of their input 
+and multiply the favorite number by itself.*/
+
 using System;
 
 

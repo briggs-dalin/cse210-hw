@@ -1,10 +1,13 @@
+//Program description
+//Asks for user to input a grade percentage. 
+//Will then determine grade and display if they have passed or not
+
 using System;
 
 class Program
 {
     static void Main(string[] args)
     {
-        Console.WriteLine("Hello World! This is the Exercise2 Project.");
 
         Console.Write("What is your grade percentage? ");
         string answer = Console.ReadLine();
