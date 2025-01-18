@@ -7,6 +7,12 @@ public class Journal
 {
 public List<Entry> _entries;
 
+//Contstructor to initialize list
+public Journal()
+{
+    _entries = new List<Entry>();
+}
+
 public void AddEntry(Entry newEntry)
 {
     _entries.Add(newEntry);

@@ -18,6 +18,29 @@ class Program
         Console.WriteLine("5. Exit");
         Console.WriteLine("Choose an option (1-5): ");
         string choice = Console.ReadLine();
-     }   
+
+        switch (choice)
+        {
+            case "1":
+            //Write new entry
+            string prompt = promptGenerator.GetRandomPrompt();
+            Console.WriteLine($"Prompt: {prompt}");
+            Console.WriteLine("Your response: ");
+            string response = Console.ReadLine();
+            string date = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
+            Entry newEntry = new Entry(date, prompt, response);
+            journal.AddEntry(newEntry);
+            Console.WriteLine("Entry added sucessfully!");
+            break;
+
+            case "2":
+            //display all entries
+            journal.DisplayAll();
+            break;
+
+            
+         }
+        } 
     }
-}
+}  
+   
