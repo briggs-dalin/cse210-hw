@@ -1,3 +1,6 @@
+/* This program will prompt the user with 5 different options.
+To write an entry. The user will then be able to save to a file
+and load it for later use.*/
 using System;
 
 class Program
@@ -38,7 +41,28 @@ class Program
             journal.DisplayAll();
             break;
 
-            
+            case "3":
+            //Save journal to file
+            Console.WriteLine("Enter File name here for saving: ");
+            string saveFileName = Console.ReadLine();
+            journal.SaveToFile(saveFileName);
+            break;
+
+            case "4":
+            //Load journal from file
+            Console.WriteLine("Enter filename to load from: ");
+            string loadFileName = Console.ReadLine();
+            journal.LoadFromFile(loadFileName);
+            break;
+
+            case "5":
+            //Exit
+            Console.WriteLine("Goodbye!");
+            return;
+
+            default:
+            Console.WriteLine("Invalid choice, please try again");
+            break;
          }
         } 
     }
