@@ -11,7 +11,7 @@ public class PromptGenerator
         {
             "What did you learn today that you didn't know before?",
             "What was something you did today that made yourself proud?",
-            "How did you take care of yourself today?",
+            "What was the strongest emotion you felt today?",
             "What challenges did you face today?",
             "If you could change one thing about today, what would it be?"
         };
@@ -19,6 +19,8 @@ public class PromptGenerator
 
     public string GetRandomPrompt()
     {
-        return "";
+        Random random = new Random();
+        int index = random.Next(_prompts.Count); // Get a random prompt
+        return _prompts[index];
     }
 }
