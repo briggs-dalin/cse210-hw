@@ -2,52 +2,63 @@ using System;
 
 public class Fraction
 {
-    private int numerator;
-    private int denominator;
+    private int _numerator;
+    private int _denominator;
 
 
     //Constructor with no parameters
     public Fraction()
     {
-        numerator = 1;
-        denominator = 1;
+        _numerator = 1;
+        _denominator = 1;
     }
 
     //Constructor with one parameter
-    public Fraction(int numerator)
+    public Fraction(int _numerator)
     {
-        this.numerator = numerator;
-        denominator = 1;
+        this._numerator = _numerator;
+        _denominator = 1;
     }
 
     //Constructor with two parameters
-    public Fraction(int numerator, int denominator)
+    public Fraction(int _numerator, int _denominator)
     {
-        this.numerator = numerator;
-        this.denominator = denominator;
+        this._numerator = _numerator;
+        this._denominator = _denominator;
     }
 
     //Getter for Numerator
     public int GetNumerator()
     {
-        return numerator;
+        return _numerator;
     }
 
     //Setter for Numerator
     public void SetNumerator(int value)
     {
-        numerator = value;
+        _numerator = value;
     }
 
     //Getter for Denominator
     public int GetDenominator()
     {
-        return denominator;
+        return _denominator;
     }
 
     //Setter for Denominator
     public void SetDenominator(int value)
     {
-        denominator = value;
+        _denominator = value;
+    }
+    //Method to get Fraction as a string
+    public string GetFractionString()
+    {
+        string fraction =  $"{_numerator}/{_denominator}";
+        return fraction;
+    }
+    //Method to get Decimal as a string
+    public double GetDecimalValue()
+    {
+        return ((double)_numerator / (double)_denominator);
     }
 }
