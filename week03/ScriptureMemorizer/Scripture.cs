@@ -61,8 +61,9 @@ public class Scripture
         return true; // All words are hidden
     }
 
-
 }
+
+
     
 
 
