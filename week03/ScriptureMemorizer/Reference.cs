@@ -23,9 +23,38 @@ public class Reference{
         this._startVerse = startVerse;
         this._endVerse = endVerse;
     }
-
+// Method to get the formatted display text of the reference
     public string GetDisplayText()
     {
-        return string.Empty;
+        if (_startVerse != _endVerse)
+        {
+            // range for multiple verses
+            return $"{_book} {_chapter}:{_startVerse}-{_endVerse}";
+        }
+        else
+        {
+            //range for single verse
+            return $"{_book} {_chapter}:{_startVerse}";
+        }
     }
-}
+
+//My getters for encapsulation
+    public string GetBook()
+    {
+        return _book;
+    }
+    public int GetChapter()
+    {
+        return _chapter;
+    }
+    public int GetStartVerse()
+    {
+        return _startVerse;
+    }
+
+    public int GetEndVerse()
+    {
+        return _endVerse;
+    }
+    
+    }
