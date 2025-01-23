@@ -1,5 +1,9 @@
 using System;
+using System.Collections.Generic;
 
+/* In my program for exceeding requirements, I did my best to 
+have my program grab a random scripture from the 3 I made and
+have it run accordingly to the projects requirements. */
 class Program
 {
     static void Main(string[] args)
@@ -30,21 +34,42 @@ class Program
         Console.WriteLine(selectedScripture.GetDisplayText()); //Display current scripture
 
         Console.WriteLine("\nPress Enter to continue hiding words or type 'quit' to exit.");
-
         string input = Console.ReadLine();
+        
+
         if (input.ToLower() == "quit")
-
-            break;
-
-        if (!selectedScripture.HideRandomWord())
         {
-            Console.WriteLine("\nYou got this! You memorized the Scripture!");
-            break; //End if all words are hidden
+            break; //End program if user types 'quit'
+        }
+        //Hide 3 random words
+        selectedScripture.HideRandomWords(3);//always attempt to hide 3 words
+    
+        //Hide 3 random words
+        if (selectedScripture.IsCompletelyHidden())
+        {
+            //If all words are hidden
+            Console.Clear();
+            Console.WriteLine(selectedScripture.GetDisplayText()); //Show the final hidden scripture
+            break; //End the program.
         }
     }
 
     Console.WriteLine("\nThis program has ended.");
+    }
 
-    
+    //Helper method to create a scripture with reference and text
+    static Scripture CreateScripture(string book, int chapter, int startVerse, int endVerse, string text)
+    {
+        var reference = new Reference(book, chapter, startVerse, endVerse);
+        var words = Scripture.CreateWordsFromText(text);
+        return new Scripture(reference, words);
+    }
+
+    //Helper method to create a scripture reference and single verse
+    static Scripture CreateScripture(string book, int chapter, int verse, string text)
+    {
+        var reference = new Reference(book, chapter, verse);
+        var words = Scripture.CreateWordsFromText(text);
+        return new Scripture(reference, words);
     }
 }

@@ -1,5 +1,4 @@
 using System;
-using System.Collections.Generic;
 
 public class Scripture 
 {
@@ -16,13 +15,13 @@ public class Scripture
 
     }
     //Hide a randum number of words
-    public bool HideRandomWord()
+    public bool HideRandomWords(int numberToHide)
     {
         Random random = new Random();
         int hiddenCount = 0;
 
     //Hide random words until limit is reached
-        while(hiddenCount < 1 && hiddenCount < _words.Count)
+        while(hiddenCount < numberToHide && hiddenCount < _words.Count)
         {
             int index = random.Next(_words.Count);
             Word word = _words[index];
@@ -31,10 +30,9 @@ public class Scripture
             {
                 word.Hide();
                 hiddenCount++; //increase hidden word count
-                return true;
             }
         }
-        return false; //All words are hidden (No more words to hide)
+        return hiddenCount > 0;
     }
 
     public string GetDisplayText()
@@ -61,11 +59,19 @@ public class Scripture
         return true; // All words are hidden
     }
 
+    //static helper method to create words from the text of the scripture
+    public static List<Word> CreateWordsFromText(string text)
+    {
+        List<Word> words = new List<Word>();
+        string[] wordArray = text.Split(new char[] { ' ', ',', '.', ':', ';', '!', '?', '-', '(', ')', '\n', '\r' },
+        StringSplitOptions.RemoveEmptyEntries);
+
+        foreach (string word in wordArray)
+        {
+            words.Add(new Word(word)); //Add each word as a Word object
+        }
+
+        return words;
+    }
+
 }
-
-
-    
-
-
-    
-    
