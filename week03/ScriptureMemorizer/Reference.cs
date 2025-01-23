@@ -6,6 +6,7 @@ public class Reference{
     private int _startVerse;
     private int _endVerse;
 
+//Constructor for single verse
     public Reference(string book, int chapter, int verse)
     {
         this._book = book;
@@ -14,6 +15,7 @@ public class Reference{
         this._endVerse = verse;
     }
 
+//Constructor for range of verses
     public Reference(string book, int chapter, int startVerse, int endVerse)
     {
         this._book = book;

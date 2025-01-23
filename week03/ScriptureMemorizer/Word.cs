@@ -29,7 +29,7 @@ public class Word
        return _isHidden;
     }
 
-    //Getter for text
+    //Getter for text (No setter to maintain immutability of words)
     public string GetText()
     {
         return _text;
