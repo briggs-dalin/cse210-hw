@@ -1,7 +1,7 @@
 using System;
+using System.Collections.Generic;
 
-
-class Scripture 
+public class Scripture 
 {
 
     private Reference _reference;
@@ -15,13 +15,14 @@ class Scripture
         this._words = words;
 
     }
-
-    public void HideRandomWords(int numberToHide)
+    //Hide a randum number of words
+    public bool HideRandomWord()
     {
         Random random = new Random();
         int hiddenCount = 0;
 
-        while(hiddenCount < numberToHide && hiddenCount < _words.Count)
+    //Hide random words until limit is reached
+        while(hiddenCount < 1 && hiddenCount < _words.Count)
         {
             int index = random.Next(_words.Count);
             Word word = _words[index];
@@ -29,18 +30,20 @@ class Scripture
             if(!word.IsHidden())
             {
                 word.Hide();
-                hiddenCount++;
+                hiddenCount++; //increase hidden word count
+                return true;
             }
         }
+        return false; //All words are hidden (No more words to hide)
     }
 
     public string GetDisplayText()
     {
-        string result = _reference.GetDisplayText()+ " ";
+        string result = _reference.GetDisplayText() + "\n";
 
         foreach (var word in _words)
         {
-            result += word.IsHidden() ? "___" : word.GetText() + " ";
+            result += word.GetDisplayText() + " ";
 
         }
         return result.Trim();
@@ -50,10 +53,14 @@ class Scripture
     {
         foreach (var word in _words)
         {
-            return false; //if any words not hidden, return false
+            if (!word.IsHidden())
+            {
+                return false;
+            }
         }
-        return true; //All words are hidden 
+        return true; // All words are hidden
     }
+
 
 }
     

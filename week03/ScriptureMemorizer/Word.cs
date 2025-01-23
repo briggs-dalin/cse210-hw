@@ -35,5 +35,10 @@ public class Word
         return _text;
     }
 
+    public string  GetDisplayText()
+    {
+        return _isHidden ? new string('_', _text.Length) : _text;
+    }
+
 
 }
