@@ -9,8 +9,10 @@ class Scripture
     
     
     //Constructor
-    public Scripture(Reference _reference, List<Word> _words)
+    public Scripture(Reference reference, List<Word> words)
     {
+        this._reference = reference;
+        this._words = words;
 
     }
 

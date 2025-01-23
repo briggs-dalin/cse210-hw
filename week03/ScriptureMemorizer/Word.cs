@@ -29,9 +29,11 @@ public class Word
        return _isHidden;
     }
 
-    public string GetDisplayText()
+    //Getter for text
+    public string GetText()
     {
-        return string.Empty;
+        return _text;
     }
-    
+
+
 }
