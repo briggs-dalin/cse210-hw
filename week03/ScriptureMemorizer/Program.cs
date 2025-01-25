@@ -20,6 +20,7 @@ class Program
     "Now ye may suppose that this is foolishness in me; but behold I say unto you, that by small and simple things are great things brought to pass; and small means in many instances doth confound the wise.\n" +
     "And the Lord God doth work by means to bring about his great and eternal purposes; and by very small means the Lord doth confound the wise and bringeth about the salvation of many souls.");
 
+
     //Store scriptures in a list
     List<Scripture> scriptures = new List<Scripture> {scripture1, scripture2, scripture3};
 
@@ -28,7 +29,7 @@ class Program
     Scripture selectedScripture = scriptures[random.Next(scriptures.Count)]; //Select and index between 0 and 2
 
     //Keep prompting the user until all words are hidden or 'quit' is typed
-    while (true)
+    while (!selectedScripture.IsCompletelyHidden())
     {
         Console.Clear();
         Console.WriteLine(selectedScripture.GetDisplayText()); //Display current scripture
@@ -54,7 +55,9 @@ class Program
         }
     }
 
-    Console.WriteLine("\nThis program has ended.");
+    
+    Console.WriteLine("\nThank you for using this Scripture Memorizer program!");
+    Console.WriteLine("This program has ended.");
     }
 
     //Helper method to create a scripture with reference and text

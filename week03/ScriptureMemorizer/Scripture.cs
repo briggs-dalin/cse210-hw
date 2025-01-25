@@ -20,8 +20,15 @@ public class Scripture
         Random random = new Random();
         int hiddenCount = 0;
 
+        //List all the words that are still not hidden
+        List<Word> availableWords = _words.FindAll(word => !word.IsHidden());
+
+        //If there are no available words left to hide, then return
+        if(availableWords.Count == 0)
+            return false;
+
     //Hide random words until limit is reached
-        while(hiddenCount < numberToHide && hiddenCount < _words.Count)
+        while(hiddenCount < numberToHide && availableWords.Count > 0)
         {
             int index = random.Next(_words.Count);
             Word word = _words[index];
@@ -31,6 +38,9 @@ public class Scripture
                 word.Hide();
                 hiddenCount++; //increase hidden word count
             }
+
+            //Refresh list of available words
+            availableWords = _words.FindAll(w => !w.IsHidden());
         }
         return hiddenCount > 0;
     }
