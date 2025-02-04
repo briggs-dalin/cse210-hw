@@ -5,6 +5,8 @@ public class MathAssignment : Assignment
     private string _textbookSection;
     private string _problems;
 
+//Math Assignment constructor has 4 parameters, with 2 of them being passed into the 
+//base "Assignment" constructor.  
     public MathAssignment(string studentName, string topic, string textbookSection, string problems)
     : base(studentName, topic)
     {
