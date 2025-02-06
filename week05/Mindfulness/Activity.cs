@@ -37,7 +37,7 @@ public class Activity
         Console.WriteLine();
         Console.Write("How long would you like the activity to be? (In seconds)");
         string durationString = Console.ReadLine();
-        SetDuration(Convert.ToInt32(durationString)); //A fancy line that converts any primitive type to an int (Found on google)
+        SetDuration(Convert.ToInt32(durationString)); //A fancy line that converts user string to an int (Found on google)
     }
 
     public void SetDuration(int duration)
@@ -45,7 +45,7 @@ public class Activity
         _duration = duration;
     }
 
-    public int GetDuraction()
+    public int GetDuration()
     {
         return _duration;
     }
