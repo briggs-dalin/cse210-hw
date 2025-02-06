@@ -50,22 +50,32 @@ public class Activity
         return _duration;
     }
 
+    //Prepares user for the start of activity
     public void StartingMessage()
     {
-        
+        Console.Clear();
+        Console.WriteLine("Get ready for the activity...");
+        ShowAnimation(5); //Shows animation to start activity and that the program is still working
     }
-
+    //Lets user know the activity is finishing up
     public void EndingMessage()
     {
-
+        Console.WriteLine();
+        Console.WriteLine($"Well done! You have completed the {_name} activity.");
+        ShowAnimation(5); //Shows animation to finish activity
     }
 
-    public void ShowAnimation()
+    //Doing Period animation (I liked it for the simplicity and looking nice.)
+    public void ShowAnimation(int totalSeconds)
     {
-        
+        for (int i = 5; i > 0; i--)
+        {
+            Console.Write(".");
+            Thread.Sleep(1000);
+        }
     }
 
-    public void ShowCountdown()
+    public void ShowCountdown(int totalSeconds)
     {
 
     }

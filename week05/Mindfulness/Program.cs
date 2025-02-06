@@ -4,6 +4,9 @@ class Program
 {
     static void Main(string[] args)
     {
-        Console.WriteLine("Hello World! This is the Mindfulness Project.");
+        Activity activity = new Activity();
+        Console.WriteLine("This is a test of my Animation.");
+        activity.ShowAnimation(5);
+        Console.WriteLine("\nAnimation complete!");
     }
 }
