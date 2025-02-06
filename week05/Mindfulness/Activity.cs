@@ -37,7 +37,7 @@ public class Activity
         Console.WriteLine();
         Console.Write("How long would you like the activity to be? (In seconds)");
         string durationString = Console.ReadLine();
-        SetDuration(Convert.ToInt32(durationString));
+        SetDuration(Convert.ToInt32(durationString)); //A fancy line that converts any primitive type to an int (Found on google)
     }
 
     public void SetDuration(int duration)
@@ -62,22 +62,40 @@ public class Activity
     {
         Console.WriteLine();
         Console.WriteLine($"Well done! You have completed the {_name} activity.");
-        ShowAnimation(5); //Shows animation to finish activity
+        ShowAnimation(4); //Shows animation to finish activity
     }
 
     //Doing Period animation (I liked it for the simplicity and looking nice.)
-    public void ShowAnimation(int totalSeconds)
+    public void ShowAnimation(int totalSeconds) 
     {
-        for (int i = 5; i > 0; i--)
+        for (int i = 0; i < totalSeconds; i++)
         {
             Console.Write(".");
             Thread.Sleep(1000);
         }
+        Console.WriteLine();
     }
 
-    public void ShowCountdown(int totalSeconds)
+    public void GenerateCountdownTimer(int totalSeconds)
     {
+        int timerPosition = 25; //Position for Countdown timer on console
+        int timerWait = 1000;
 
+        timerPosition = Console.CursorLeft;
+
+        for (int i = 0; i <= totalSeconds; i++)
+        {
+            Console.CursorLeft = timerPosition;
+            Console.Write(totalSeconds - i);
+            Thread.Sleep(timerWait);
+        }
+        Console.CursorLeft = timerPosition;
+        Console.WriteLine(" ");
+    }
+    public void ShowCountDown(int totalSeconds)
+    {
+        Console.WriteLine("Starting Countdown...");
+        GenerateCountdownTimer(totalSeconds); //Calls to show countdown
     }
 
 }
