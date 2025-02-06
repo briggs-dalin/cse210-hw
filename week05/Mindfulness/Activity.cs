@@ -35,7 +35,7 @@ public class Activity
     public void AskDuration()
     {
         Console.WriteLine();
-        Console.Write("How long would you like the activity to be? (In seconds)");
+        Console.Write("How long would you like the activity to be? (In seconds): ");
         string durationString = Console.ReadLine();
         SetDuration(Convert.ToInt32(durationString)); //A fancy line that converts user string to an int (Found on google)
     }
@@ -54,15 +54,19 @@ public class Activity
     public void StartingMessage()
     {
         Console.Clear();
-        Console.WriteLine("Get ready for the activity...");
+        Console.Write("Loading Activity");
         ShowAnimation(5); //Shows animation to start activity and that the program is still working
     }
     //Lets user know the activity is finishing up
     public void EndingMessage()
     {
         Console.WriteLine();
-        Console.WriteLine($"Well done! You have completed the {_name} activity.");
-        ShowAnimation(4); //Shows animation to finish activity
+        Console.WriteLine($"Well done!");
+        Console.WriteLine($"You have finished {_duration} seconds of the {_name}!");
+        Console.Write("Closing Activity");
+        ShowAnimation(3); //Shows animation to finish activity
+
+        
     }
 
     //Doing Period animation (I liked it for the simplicity and looking nice.)
@@ -82,6 +86,7 @@ public class Activity
         int timerWait = 1000;
 
         timerPosition = Console.CursorLeft;
+        
 
         for (int i = 0; i <= totalSeconds; i++)
         {
@@ -94,7 +99,6 @@ public class Activity
     }
     public void ShowCountDown(int totalSeconds)
     {
-        Console.WriteLine("Starting Countdown...");
         GenerateCountdownTimer(totalSeconds); //Calls to show countdown
     }
 
