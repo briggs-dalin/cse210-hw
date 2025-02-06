@@ -63,7 +63,7 @@ public class Activity
         Console.WriteLine();
         Console.WriteLine($"Well done!");
         Console.WriteLine($"You have finished {_duration} seconds of the {_name}!");
-        Console.WriteLine("Closing Activity");
+        Console.Write("Closing Activity");
         ShowAnimation(3); //Shows animation to finish activity
 
         
