@@ -14,6 +14,9 @@ public class ListingActivity : Activity
         "How has someone helped you in the past month?",
         "What qualities do you admire in yourself?"
     };
+
+    
+    
     public ListingActivity()
     {
         SetName("Listing Activity");
@@ -30,6 +33,10 @@ public class ListingActivity : Activity
 
     public void PromptListing()
     {
+
+        StartingMessage();
+        AskDuration();
+        
         string prompt = GeneratePrompt();
         Console.WriteLine();
         Console.WriteLine("List as many responses you can to the following prompt:");
@@ -43,7 +50,24 @@ public class ListingActivity : Activity
         GenerateCountdownTimer(5);
         Console.WriteLine();//Adding space to look nicer
 
+        
+        int elapsedTime = 0;
+        int duration = GetDuration();
 
+        //loop through while the timer is still going
+        while(elapsedTime < duration)
+        {
+            Console.Write("> ");
+            Console.ReadLine();
+            elapsedTime++;
+            Thread.Sleep(1000);
+        }
+
+        //Wrap up activity and tell user how many responses they did
+        Console.WriteLine("Time is up! Good Job!");
+        Console.WriteLine($"You did {elapsedTime} responses");
+
+        EndingMessage();
         
     }
 
