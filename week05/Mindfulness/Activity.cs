@@ -50,6 +50,14 @@ public class Activity
         return _duration;
     }
 
+    public void RunActivity()
+    {
+        Console.Clear();
+        ShowDetails();
+        AskDuration();
+        GetReady();
+    }
+
     //Prepares user for the start of activity
     public void StartingMessage()
     {
@@ -80,6 +88,13 @@ public class Activity
         Console.WriteLine();
     }
 
+    public void GetReady()
+    {
+        Console.Clear();
+        Console.WriteLine("Get Ready...");
+        ShowAnimation(5);
+    }
+
     public void GenerateCountdownTimer(int totalSeconds)
     {
         int timerPosition = 25; //Position for Countdown timer on console
@@ -100,6 +115,20 @@ public class Activity
     public void ShowCountDown(int totalSeconds)
     {
         GenerateCountdownTimer(totalSeconds); //Calls to show countdown
+    }
+
+    public DateTime GetFutureTime(int duration)
+    {
+        DateTime futureTime = new DateTime();
+        futureTime = DateTime.Now.AddSeconds(duration);
+
+        return futureTime;
+    }
+    public DateTime GetCurrentTime()
+    {
+        DateTime currentTime = new DateTime();
+        currentTime = DateTime.Now;
+        return currentTime;
     }
 
 }

@@ -44,31 +44,26 @@ public class ListingActivity : Activity
         
         //Prompt user to press any key when ready to begin
         Console.WriteLine("When you are ready, press any key to start.");
-        Console.ReadKey();//Waits for user to press a key
+        Console.ReadKey(true);//Waits for user to press a key
 
         Console.WriteLine("\nYou may begin in:");
         GenerateCountdownTimer(5);
         Console.WriteLine();//Adding space to look nicer
 
         
-        int elapsedTime = 0;
-        int duration = GetDuration();
+        DateTime futureTime = GetFutureTime(GetDuration());
+        DateTime currentTime = GetCurrentTime();
 
         //loop through while the timer is still going
-        while(elapsedTime < duration)
+        while(currentTime <= futureTime)
         {
             Console.Write("> ");
             Console.ReadLine();
-            elapsedTime++;
-            Thread.Sleep(1000);
+            currentTime = DateTime.Now;
         }
-
-        //Wrap up activity and tell user how many responses they did
-        Console.WriteLine("Time is up! Good Job!");
-        Console.WriteLine($"You did {elapsedTime} responses");
-
-        EndingMessage();
         
+        EndingMessage();
     }
+    
 
 }
