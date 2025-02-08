@@ -20,7 +20,7 @@ public class ListingActivity : Activity
     public ListingActivity()
     {
         SetName("Listing Activity");
-        SetDescription("This activity will help you reflect on the good things you have in life. Set a timer and list as many as you can in that time limit.");
+        SetDescription("This activity will help you reflect on the good things you have in life. Set a timer and list \nas many as you can in that time limit.");
     }
 
     public string GeneratePrompt()
@@ -34,8 +34,6 @@ public class ListingActivity : Activity
     public void PromptListing()
     {
 
-        StartingMessage();
-        AskDuration();
         
         string prompt = GeneratePrompt();
         Console.WriteLine($"---{prompt}---");
@@ -65,7 +63,7 @@ public class ListingActivity : Activity
         }
         
         Console.WriteLine($"You Provided {responseCount} responses.");
-        EndingMessage();
+        
     }
     
 

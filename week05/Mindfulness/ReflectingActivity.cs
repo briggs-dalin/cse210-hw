@@ -27,14 +27,14 @@ public class ReflectingActivity : Activity
     "What is your favorite thing about this experience?",
     "What self-discoveries did you make through this encounter?",
     "What did you learn about yourself through this experience?",
-    "How can you keep this experience in mind in the future?",
+    "How can you keep this experience in mind for the future?",
     "What were the initial steps you took to initiate this process?",
     };
     
     public ReflectingActivity()
     {
         SetName("Reflecting Activity");
-        SetDescription("This activity will help you think back on a time that you have shown strength and perseverence. This will help show you how amazing of a person you are!");
+        SetDescription("This activity will help you think back on a time that you have shown strength and perseverence.\nThis will help show you how amazing of a person you are!");
             
     }
 

@@ -1,6 +1,7 @@
 using System;
 using System.Diagnostics;
 
+
 public class Activity
 {
     private string _name;
@@ -72,7 +73,7 @@ public class Activity
         Console.WriteLine($"Well done!");
         Console.WriteLine($"You have finished {_duration} seconds of the {_name}!");
         Console.Write("Closing Activity");
-        ShowAnimation(3); //Shows animation to finish activity
+        ShowAnimation(5); //Shows animation to finish activity
 
         
     }
@@ -91,7 +92,7 @@ public class Activity
     public void GetReady()
     {
         Console.Clear();
-        Console.WriteLine("Get Ready...");
+        Console.WriteLine("Get Ready!");
         ShowAnimation(5);
     }
 
