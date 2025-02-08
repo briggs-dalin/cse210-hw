@@ -12,7 +12,7 @@ public class Activity
     {
       _name = "";
       _description = "";
-      _duration = 12;
+      _duration = 15;
     }
 
     public void SetName(string name)

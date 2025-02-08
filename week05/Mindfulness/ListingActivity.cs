@@ -27,7 +27,7 @@ public class ListingActivity : Activity
     {
         Random random = new Random();
         int index = random.Next(_prompts.Count);//Select random prompt
-        Console.WriteLine("Your prompt is:");
+        Console.WriteLine("\nYour prompt is:");
         return _prompts[index];//Display prompt
     }
 
@@ -38,12 +38,10 @@ public class ListingActivity : Activity
         AskDuration();
         
         string prompt = GeneratePrompt();
-        Console.WriteLine();
-        Console.WriteLine("List as many responses you can to the following prompt:");
         Console.WriteLine($"---{prompt}---");
         
         //Prompt user to press any key when ready to begin
-        Console.WriteLine("When you are ready, press any key to start.");
+        Console.WriteLine("\nWhen you are ready, press any key to start.");
         Console.ReadKey(true);//Waits for user to press a key
 
         Console.WriteLine("\nYou may begin in:");
@@ -54,14 +52,19 @@ public class ListingActivity : Activity
         DateTime futureTime = GetFutureTime(GetDuration());
         DateTime currentTime = GetCurrentTime();
 
+
+        //Initalize counter to track number of responses
+        int responseCount = 0;
         //loop through while the timer is still going
         while(currentTime <= futureTime)
         {
             Console.Write("> ");
             Console.ReadLine();
+            responseCount++;
             currentTime = DateTime.Now;
         }
         
+        Console.WriteLine($"You Provided {responseCount} responses.");
         EndingMessage();
     }
     

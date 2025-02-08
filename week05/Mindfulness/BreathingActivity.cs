@@ -5,7 +5,7 @@ public class BreathingActivity : Activity
     public BreathingActivity()
     {
     SetName("Breathing Activity");
-        SetDescription("This is a breathing activity to help you relax and focus.");
+    SetDescription("This is a breathing activity to help you relax and focus.");
     }
 
         public void PreformBreathingActivity()

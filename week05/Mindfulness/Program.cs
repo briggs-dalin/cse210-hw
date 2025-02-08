@@ -4,8 +4,8 @@ class Program
 {
     static void Main(string[] args)
     {
-        ListingActivity listingActivity = new ListingActivity();
+        ReflectingActivity reflectingActivity = new ReflectingActivity();
         
-        listingActivity.PromptListing();
+        reflectingActivity.PromptReflecting();
     }
 }
