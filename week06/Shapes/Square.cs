@@ -4,13 +4,15 @@ public class Square : Shape
 {
     private double _side;
 
-    public Square(string color, double side) : base (color)
+    public Square(string color, string name, double side) : base (color, name)
     {
         _side = side;
     }
 
+
+//Area for square
     public override double GetArea()
     {
-        throw new NotImplementedException();
+        return _side * _side;
     }
 }

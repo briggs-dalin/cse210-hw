@@ -5,15 +5,16 @@ public class Rectangle : Shape
  private double _length;
  private double _width;
 
- public Rectangle(string color, double length, double width) : base (color)
+ public Rectangle(string color, string name, double length, double width) : base (color, name)
  {
     _length = length;
 
     _width = width;
  }
 
+// Area for Rectangle
     public override double GetArea()
     {
-        throw new NotImplementedException();
+        return _length * _width;
     }
 }
