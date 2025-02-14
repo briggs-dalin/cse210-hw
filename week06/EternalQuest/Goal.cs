@@ -2,10 +2,10 @@
 using System;
 public class Goal
 {
-    private string _name;
-    private string _description;
+    protected string _name;
+    protected string _description;
 
-    private int _points;
+    protected int _points;
 
     protected bool _status;
 
