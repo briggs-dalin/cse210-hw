@@ -66,24 +66,56 @@ public class GoalManager
 
     }
 
-    public void ListGoal()
+    public void ListGoals()
     {
-
+        Console.WriteLine("The goals are: ");
+        for (int i = 0; i < _goals.Count(); i++)
+        {
+            Console.Write($"{i + 1}. ");
+            _goals[i].ListGoal();
+            Console.WriteLine("\n");
+        }
+        Console.WriteLine();
     }
 
-    public void AddGoal()
+    public void AddGoals(Goal goal)
     {
-
+        _goals.Add(goal);
     }
 
     public void RecordEvent()
     {
+        string goalIndex = "";
+        Console.WriteLine("Which goal did you accomplish? ");
+        goalIndex = Console.ReadLine();
+        int goalIndexInt = Convert.ToInt32(goalIndex) - 1;
 
+        if (_goals[goalIndexInt].IsComplete() == false)
+        {
+            _goals[goalIndexInt].RecordEvent();
+
+            int pointsEarned = _goals[goalIndexInt].CalculateAGP();
+
+            _accumulatedPoints += pointsEarned;
+
+            Console.WriteLine($"Congrats! You have earned {pointsEarned.ToString()} points!");
+            Console.WriteLine($"Now you have {_accumulatedPoints} points!");
+        }
+        else
+        {
+            Console.WriteLine("You have already completed this goal.");
+        }
     }
 
-    public void CalculateAGP()
+    public int CalculateTotalAGP()
     {
-        
+        int totalAGP = _accumulatedPoints;
+        foreach(Goal goal in _goals)
+        {
+            totalAGP += goal.CalculateAGP();
+        }
+
+        return totalAGP;
     }
 
 
