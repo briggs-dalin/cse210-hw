@@ -5,7 +5,7 @@ public class Goal
     protected string _name;
     protected string _description;
 
-    protected int _points;
+    protected int _goalPoints;
 
     protected bool _status;
 
@@ -13,15 +13,15 @@ public class Goal
     {
         _name = "Test Name";
         _description = "Test Description";
-        _points = 50;
+        _goalPoints = 50;
         _status = false;
     }
 
-    public Goal(string name, string description, int points)
+    public Goal(string name, string description, int goalPoints)
     {
         _name = name;
         _description = description;
-        _points = points;
+        _goalPoints = goalPoints;
 
     }
 
@@ -36,8 +36,8 @@ public class Goal
 
         Console.Write("What is the amount of points for this goal? ");
         //Convert the int into a string
-        string stringPoints = (Console.ReadLine());
-        _points = Convert.ToInt32(stringPoints);
+        string stringGoalPoints = (Console.ReadLine());
+        _goalPoints = Convert.ToInt32(stringGoalPoints);
 
         _status = false; //Goal starts out not complete
 

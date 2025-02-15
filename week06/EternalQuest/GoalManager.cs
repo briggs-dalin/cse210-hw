@@ -32,43 +32,40 @@ public class GoalManager
     }
 
     public void LoadGoals()
+{
+    _goals.Clear(); // Clear previous goals
+
+    string fileName = "";
+    Console.Write("What is the filename? ");
+    fileName = Console.ReadLine();
+    string[] lines = System.IO.File.ReadAllLines(fileName);
+
+    _accumulatedPoints = Convert.ToInt32(lines[0]); // Load accumulated points
+
+    for (int i = 1; i < lines.Length; i++)
     {
-        _goals.Clear(); 
+        string[] parts = lines[i].Split(","); // Split by commas
 
-        string fileName = "";
-        Console.Write("What is the filename? ");
-        fileName = Console.ReadLine();
-        string[] lines = System.IO.File.ReadAllLines(fileName);
-
-        _accumulatedPoints = Convert.ToInt32(lines[0]);
-
-        for (int i = 1; i < lines.Count(); i++)
+        // Check goal type and load corresponding goal
+        if (parts[0] == "SimpleGoal")
         {
-            string[] parts = lines[i].Split("|");
-
-            if (parts[0] == "SimpleGoal") 
-            {
-
-                SimpleGoal simpleGoal = new SimpleGoal(parts[1], parts[2], Convert.ToInt32(parts[3]), Convert.ToBoolean(parts[4]));
-                _goals.Add(simpleGoal);             
-
-            } 
-            else if (parts[0] == "EternalGoal") 
-            {
-
-                EternalGoal eternalGoal = new EternalGoal(parts[1], parts[2], Convert.ToInt32(parts[3]));
-                _goals.Add(eternalGoal);
-            }
-             else if (parts[0] == "ChecklistGoal") 
-            {
-                
-                ChecklistGoal checklistGoal = new ChecklistGoal(parts[1], parts[2], Convert.ToInt32(parts[3]), Convert.ToInt32(parts[4]), Convert.ToInt32(parts[5]), Convert.ToInt32(parts[6]));
-                _goals.Add(checklistGoal);
-
-            }
+            SimpleGoal simpleGoal = new SimpleGoal(parts[1], parts[2], Convert.ToInt32(parts[3]), Convert.ToBoolean(parts[4]));
+            _goals.Add(simpleGoal);
         }
-
+        else if (parts[0] == "EternalGoal")
+        {
+            EternalGoal eternalGoal = new EternalGoal(parts[1], parts[2], Convert.ToInt32(parts[3]));
+            _goals.Add(eternalGoal);
+        }
+        else if (parts[0] == "ChecklistGoal")
+        {
+            ChecklistGoal checklistGoal = new ChecklistGoal(parts[1], parts[2], Convert.ToInt32(parts[3]), Convert.ToInt32(parts[4]), Convert.ToInt32(parts[5]), Convert.ToInt32(parts[6]));
+            _goals.Add(checklistGoal);
+        }
     }
+}
+
+    
 
     public void ListGoals()
     {

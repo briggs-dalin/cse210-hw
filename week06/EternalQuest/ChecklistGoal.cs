@@ -18,7 +18,7 @@ public class ChecklistGoal : Goal
     {
         _name = name;
         _description = description;
-        _points = points;
+        _goalPoints = points;
         _bonus = bonus;
         _steps = steps;
         _stepsCounter = stepsCounter;
@@ -61,7 +61,7 @@ public class ChecklistGoal : Goal
     {
         int points = 0;
 
-        points = _stepsCounter * _points;
+        points = _stepsCounter * _goalPoints;
 
         bool status = IsComplete();
 
@@ -84,13 +84,13 @@ public class ChecklistGoal : Goal
         {
             statusSymbol = " ";
         }
-        Console.Write($"[{statusSymbol}] {_name} ({_description}) -- Currently Completed {_stepsCounter}/{_steps}");
+        Console.Write($"[{statusSymbol}] {_name} ({_description}) -- Currently Completed {_stepsCounter}/{_steps} {_goalPoints}. After completion: {_bonus}");
     }
 
     public override string SaveGoal()
     {
-       string line = "";
-       line = $"Checklist Goal|{_name}|{_description}|{_points.ToString()}|{_bonus.ToString()}|{_steps.ToString()}|{_stepsCounter.ToString()}";
+       string line;
+       line = $"ChecklistGoal,{_name},{_description},{_goalPoints},{_bonus},{_steps},{_stepsCounter}";
        return line;
     }
 }

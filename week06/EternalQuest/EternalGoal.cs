@@ -7,14 +7,14 @@ public class EternalGoal : Goal
     public EternalGoal(){
         _name = "";
         _description = "";
-        _points = 50;
+        _goalPoints = 50;
         _stepCounter = 0;
     }
-    public EternalGoal(string name, string description, int points)
+    public EternalGoal(string name, string description, int goalPoints)
     {
         _name = name;
         _description = description;
-        _points = points;
+        _goalPoints = goalPoints;
         _stepCounter = 0;
     }
 
@@ -25,7 +25,7 @@ public class EternalGoal : Goal
 
     public override void ListGoal()
     {
-        Console.WriteLine($"[ ] {_name} ({_description})");
+        Console.WriteLine($"[ ] {_name} ({_description}) Worth:{_goalPoints} Each");
     }
 
     public override bool IsComplete()
@@ -35,8 +35,8 @@ public class EternalGoal : Goal
 
     public override string SaveGoal()
     {
-        string line = "";
-        line = $"Eternal Goal|{_name}|{_description}|{_points.ToString()}";
+        string line;
+        line = $"EternalGoal,{_name},{_description},{_goalPoints}";
         return line;
     }
 
@@ -47,7 +47,7 @@ public class EternalGoal : Goal
 
     public override int CalculateAGP()
     {
-        int points = _points;
+        int points = _goalPoints;
         return points;
     }
 }
