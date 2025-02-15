@@ -7,6 +7,11 @@ public class ChecklistGoal : Goal
 
     private int _bonus;
 
+    public ChecklistGoal()
+    {
+
+    }
+
     
 
     public ChecklistGoal(string name, string description, int points, int bonus, int steps, int stepsCounter)
@@ -85,7 +90,7 @@ public class ChecklistGoal : Goal
     public override string SaveGoal()
     {
        string line = "";
-       line = $"Checklist Goal: {_name}, {_description}, {_points.ToString()}, {_bonus.ToString()}, {_steps.ToString()}, {_stepsCounter.ToString()}";
+       line = $"Checklist Goal|{_name}|{_description}|{_points.ToString()}|{_bonus.ToString()}|{_steps.ToString()}|{_stepsCounter.ToString()}";
        return line;
     }
 }

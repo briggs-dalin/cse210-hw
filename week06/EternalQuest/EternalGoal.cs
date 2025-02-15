@@ -36,7 +36,7 @@ public class EternalGoal : Goal
     public override string SaveGoal()
     {
         string line = "";
-        line = $"Eternal Goal:{_name}, {_description}, {_points.ToString()}";
+        line = $"Eternal Goal|{_name}|{_description}|{_points.ToString()}";
         return line;
     }
 

@@ -94,7 +94,7 @@ public class SimpleGoal : Goal
     public override string SaveGoal()
     {
         string line = "";
-        line = $"SimpleGoal:{_name},{_description}{_points},{IsComplete().ToString()}";
+        line = $"SimpleGoal:{_name}|{_description}|{_points}|{IsComplete().ToString()}";
         return line;
     }
 

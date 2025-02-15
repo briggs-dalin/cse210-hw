@@ -42,21 +42,25 @@ public class GoalManager
 
         _accumulatedPoints = Convert.ToInt32(lines[0]);
 
-        for (int i = 1; i < lines.Count(); i++ )
+        for (int i = 1; i < lines.Count(); i++)
         {
             string[] parts = lines[i].Split("|");
 
-            if (parts[0] == "SimpleGoal") {
+            if (parts[0] == "SimpleGoal") 
+            {
 
                 SimpleGoal simpleGoal = new SimpleGoal(parts[1], parts[2], Convert.ToInt32(parts[3]), Convert.ToBoolean(parts[4]));
                 _goals.Add(simpleGoal);             
 
-            } else if (parts[0] == "EternalGoal") {
+            } 
+            else if (parts[0] == "EternalGoal") 
+            {
 
                 EternalGoal eternalGoal = new EternalGoal(parts[1], parts[2], Convert.ToInt32(parts[3]));
                 _goals.Add(eternalGoal);
-
-            } else if (parts[0] == "ChecklistGoal") {
+            }
+             else if (parts[0] == "ChecklistGoal") 
+            {
                 
                 ChecklistGoal checklistGoal = new ChecklistGoal(parts[1], parts[2], Convert.ToInt32(parts[3]), Convert.ToInt32(parts[4]), Convert.ToInt32(parts[5]), Convert.ToInt32(parts[6]));
                 _goals.Add(checklistGoal);
