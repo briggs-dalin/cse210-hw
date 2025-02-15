@@ -2,14 +2,30 @@ using System;
 
 public class EternalGoal : Goal
 {
-    public EternalGoal(string name, string description, int points) : base(name, description, points)
-    {
+    private int _stepCounter;
 
+    public EternalGoal(){
+        _name = "";
+        _description = "";
+        _points = 50;
+        _stepCounter = 0;
+    }
+    public EternalGoal(string name, string description, int points)
+    {
+        _name = name;
+        _description = description;
+        _points = points;
+        _stepCounter = 0;
     }
 
     public override void CreateChildGoal()
     {
-        base.CreateChildGoal();
+        CreateBaseGoal();
+    }
+
+    public override void ListGoal()
+    {
+        Console.WriteLine($"[ ] {_name} ({_description})");
     }
 
     public override bool IsComplete()
@@ -19,16 +35,19 @@ public class EternalGoal : Goal
 
     public override string SaveGoal()
     {
-        return base.SaveGoal();
+        string line = "";
+        line = $"Eternal Goal:{_name}, {_description}, {_points.ToString()}";
+        return line;
     }
 
     public override void RecordEvent()
     {
-        base.RecordEvent();
+        _stepCounter ++;
     }
 
     public override int CalculateAGP()
     {
-        return 0;
+        int points = _points;
+        return points;
     }
 }
