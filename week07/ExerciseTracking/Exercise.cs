@@ -12,6 +12,7 @@ public class Exercise
         _minutes = minutes;
     }
 
+    //abstract methods for other classes
     public virtual  double CalculateDistance()
     {
         return 0;

@@ -18,11 +18,13 @@ public class Running : Exercise
 
     public override double CalculateSpeed()
     {
-        return base.CalculateSpeed();
+        double speed = (_distance / _minutes) * 60;
+        return speed;
     }
 
     public override double CalculatePace()
     {
-        return base.CalculatePace();
+        double pace = _minutes / _distance;
+        return pace;
     }
 }

@@ -13,16 +13,18 @@ public class StationaryBicycles : Exercise
 
     public override double CalculateDistance()
     {
-        return base.CalculateDistance();
+        double distance = _speed * _minutes / 60;
+        return distance;
     }
 
     public override double CalculateSpeed()
     {
-        return base.CalculateSpeed();
+        return _speed;
     }
 
     public override double CalculatePace()
     {
-        return base.CalculatePace();
+        double pace = 60 / _speed;
+        return pace;
     }
 }

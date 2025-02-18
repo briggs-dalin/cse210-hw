@@ -12,16 +12,19 @@ public class Swimming : Exercise
 
     public override double CalculateDistance()
     {
-        return base.CalculateDistance();
+        double distance = _laps * 50 / 1000;
+        return distance;
     }
 
     public override double CalculateSpeed()
     {
-        return base.CalculateSpeed();
+        double speed = CalculateDistance() / _minutes * 60;
+        return speed;
     }
 
     public override double CalculatePace()
     {
-        return base.CalculatePace();
+        double pace = _minutes / CalculateDistance();
+        return pace;
     }
 }
